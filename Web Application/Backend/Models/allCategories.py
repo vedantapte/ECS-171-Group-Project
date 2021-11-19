@@ -19,8 +19,8 @@ def allCategoriesModel(PctKids2Par,PctIlleg,TotalPctDiv,racepctblack,racePctWhit
 
     # Split the dataset into training and testing sets with a 80:20 ratio
     inputColumns = df[['PctKids2Par','PctIlleg','TotalPctDiv','racepctblack','racePctWhite',
-                       'PctPopUnderPov','pctWPubAsst','pctWInvInc']]
-    outputColumn = df['ViolentCrimesPerPop']
+                       'PctPopUnderPov','pctWPubAsst','pctWInvInc']].to_numpy()
+    outputColumn = df['ViolentCrimesPerPop'].to_numpy()
     x_train, x_test, y_train, y_test = train_test_split(inputColumns, outputColumn,test_size = 0.2, random_state=21)
 
     # Train the linear regression model
