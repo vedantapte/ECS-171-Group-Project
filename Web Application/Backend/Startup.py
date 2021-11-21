@@ -8,7 +8,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/model1', methods=['GET'])
+@app.route('/family', methods=['GET'])
 def calcViolentCrimesModel1():
     PctKids2Par = float(request.args.get('PctKids2Par')) #Attributes will come from the front end
     PctIlleg = float(request.args.get('PctIlleg'))
@@ -21,7 +21,7 @@ def calcViolentCrimesModel1():
     resultDictionary = {'ViolentCrimesPerPop': familyOutput} #Put whatever calculations you want to send to the front end here, these are just dummy values.
     return jsonify(resultDictionary)
 
-@app.route('/model2', methods=['GET'])
+@app.route('/wealth', methods=['GET'])
 def calcViolentCrimesModel2():
     PctPopUnderPov = float(request.args.get('PctPopUnderPov')) #Attributes will come from the front end
     pctWPubAsst = float(request.args.get('pctWPubAsst'))
@@ -34,7 +34,7 @@ def calcViolentCrimesModel2():
     resultDictionary = {'ViolentCrimesPerPop': wealthOutput} #Put whatever calculations you want to send to the front end here, these are just dummy values.
     return jsonify(resultDictionary)
 
-@app.route('/model3', methods=['GET'])
+@app.route('/race', methods=['GET'])
 def calcViolentCrimesModel3():
     racepctblack = float(request.args.get('racepctblack')) #Attributes will come from the front end
     racePctWhite = float(request.args.get('racePctWhite'))
@@ -47,7 +47,7 @@ def calcViolentCrimesModel3():
     resultDictionary = {'ViolentCrimesPerPop': raceOutput} #Put whatever calculations you want to send to the front end here, these are just dummy values.
     return jsonify(resultDictionary)
 
-@app.route('/model4', methods=['GET'])
+@app.route('/all', methods=['GET'])
 def calcViolentCrimesModel4():
     PctKids2Par = float(request.args.get('PctKids2Par')) #Attributes will come from the front end
     PctIlleg = float(request.args.get('PctIlleg'))

@@ -15,7 +15,7 @@ class Model1 extends React.Component {
     if (event) {
     this.setState({ViolentCrimesPerPop: "Loading..."});    
     event.preventDefault();
-    const resp = await axios.get(`http://localhost:8000/model1?PctKids2Par=${this.state.PctKids2Par}&PctIlleg=${this.state.PctIlleg}&TotalPctDiv=${this.state.TotalPctDiv}`,{ crossdomain: true }).then(res => res.data);
+    const resp = await axios.get(`http://localhost:8000/family?PctKids2Par=${this.state.PctKids2Par}&PctIlleg=${this.state.PctIlleg}&TotalPctDiv=${this.state.TotalPctDiv}`,{ crossdomain: true }).then(res => res.data);
     console.log(resp);
     this.setState({ViolentCrimesPerPop: resp.ViolentCrimesPerPop});    
     }
@@ -34,15 +34,15 @@ class Model1 extends React.Component {
     if (this.show) {
       return <div className="Model1"> <form onSubmit={this.handleSubmit}>
         <div>
-        PctKids2Par:
+        Percentage of kids in family housing with two parents:
         <Slider value={this.state.PctKids2Par} onChange={event => this.setState({ PctKids2Par: event.target.value })}/>
         </div>
         <div>
-        PctIlleg:
+        Percentage of kids born to never married:
         <Slider value={this.state.PctIlleg} onChange={event => this.setState({ PctIlleg: event.target.value })}/>
         </div>
         <div>
-        TotalPctDiv:
+        Percentage of population who are divorced:
         <Slider value={this.state.TotalPctDiv} onChange={event => this.setState({ TotalPctDiv: event.target.value })}/>
         </div>
     <input type="submit" value="Submit" />
