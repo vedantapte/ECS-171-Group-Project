@@ -15,10 +15,10 @@ def calcViolentCrimesModel1():
     TotalPctDiv = float(request.args.get('TotalPctDiv'))
     if (not PctKids2Par or not PctIlleg or not TotalPctDiv): #Bad request if user didn't send in an argument.
         return Response("Missing attribute.", status=400)
-    familyOutput = family.familyModel(PctKids2Par, PctIlleg, TotalPctDiv)
+    familyOutput = family.getCrimeRate(PctKids2Par, PctIlleg, TotalPctDiv)
     #Do the ML algorithm here
 
-    resultDictionary = {'ViolentCrimesPerPop': familyOutput} #Put whatever calculations you want to send to the front end here, these are just dummy values.
+    resultDictionary = {'ViolentCrimesPerPop': str(familyOutput)} #Put whatever calculations you want to send to the front end here, these are just dummy values.
     return jsonify(resultDictionary)
 
 @app.route('/wealth', methods=['GET'])
@@ -28,10 +28,10 @@ def calcViolentCrimesModel2():
     pctWInvInc = float(request.args.get('pctWInvInc'))
     if (not PctPopUnderPov or not pctWPubAsst or not pctWInvInc): #Bad request if user didn't send in an argument.
         return Response("Missing attribute.", status=400)
-    wealthOutput = wealth.wealthModel(PctPopUnderPov, pctWPubAsst, pctWInvInc)
+    wealthOutput = wealth.getCrimeRate(PctPopUnderPov, pctWPubAsst, pctWInvInc)
     #Do the ML algorithm here
 
-    resultDictionary = {'ViolentCrimesPerPop': wealthOutput} #Put whatever calculations you want to send to the front end here, these are just dummy values.
+    resultDictionary = {'ViolentCrimesPerPop': str(wealthOutput)} #Put whatever calculations you want to send to the front end here, these are just dummy values.
     return jsonify(resultDictionary)
 
 @app.route('/race', methods=['GET'])
@@ -40,11 +40,11 @@ def calcViolentCrimesModel3():
     racePctWhite = float(request.args.get('racePctWhite'))
     if (not racepctblack or not racePctWhite): #Bad request if user didn't send in an argument.
         return Response("Missing attribute.", status=400)
-    raceOutput = race.raceModel(racepctblack, racePctWhite)
+    raceOutput = race.getCrimeRate(racepctblack, racePctWhite)
 
     #Do the ML algorithm here
 
-    resultDictionary = {'ViolentCrimesPerPop': raceOutput} #Put whatever calculations you want to send to the front end here, these are just dummy values.
+    resultDictionary = {'ViolentCrimesPerPop': str(raceOutput)} #Put whatever calculations you want to send to the front end here, these are just dummy values.
     return jsonify(resultDictionary)
 
 @app.route('/all', methods=['GET'])
@@ -59,11 +59,11 @@ def calcViolentCrimesModel4():
     racePctWhite = float(request.args.get('racePctWhite'))
     if (not PctKids2Par or not PctIlleg or not TotalPctDiv or not PctPopUnderPov or not pctWPubAsst or not pctWInvInc or not racepctblack or not racePctWhite): #Bad request if user didn't send in an argument.
         return Response("Missing attribute.", status=400)
-    allCategoriesOutput = allCategories.allCategoriesModel(PctKids2Par,PctIlleg,TotalPctDiv,racepctblack,racePctWhite,PctPopUnderPov,pctWPubAsst,pctWInvInc)
+    allCategoriesOutput = allCategories.getCrimeRate(PctKids2Par,PctIlleg,TotalPctDiv,racepctblack,racePctWhite,PctPopUnderPov,pctWPubAsst,pctWInvInc)
 
     #Do the ML algorithm here
 
-    resultDictionary = {'ViolentCrimesPerPop': allCategoriesOutput} #Put whatever calculations you want to send to the front end here, these are just dummy values.
+    resultDictionary = {'ViolentCrimesPerPop': str(allCategoriesOutput)} #Put whatever calculations you want to send to the front end here, these are just dummy values.
     return jsonify(resultDictionary)
 
 if __name__ == '__main__':
