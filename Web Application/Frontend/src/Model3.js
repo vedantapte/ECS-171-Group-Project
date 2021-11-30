@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import { Slider } from "@material-ui/core";
 class Model3 extends React.Component {
     constructor(props) {
         super(props);
@@ -30,25 +31,29 @@ class Model3 extends React.Component {
   
     render() {
       if (this.show) {
-        return <div className="Model3"> <form onSubmit={this.handleSubmit}>
+        return <div className="Model3"> 
+        <blockquote>Model that uses race-related attributes to predict violent crime.</blockquote>
+        
+        <form onSubmit={this.handleSubmit}>
         <label>
           <div>
           Percentage of population that is African American:
-          <br></br>
-          <input type="number" step="any" name='racepctblack' required 
-           onChange={event => this.setState({ racepctblack: event.target.value })}/>
+          <div className="slider">
+            <Slider value={this.state.racepctblack} onChange={(event, value) => this.setState({ racepctblack: value })}/>
+            <p className="slider-text">{this.state.racepctblack? this.state.racepctblack:"0"}</p>
+          </div>
           </div>
           <div>
           Percentage of population that is Caucasian:
-          <br></br>
-
-          <input type="number" step="any" name='racePctWhite' required 
-          onChange={event => this.setState({ racePctWhite: event.target.value })}/>
+          <div className="slider">
+            <Slider value={this.state.racePctWhite} onChange={(event, value) => this.setState({ racePctWhite: value })}/>
+            <p className="slider-text">{this.state.racePctWhite? this.state.racePctWhite:"0"}</p>
+          </div>
           </div>
         </label>
         <br></br>
         <br></br>
-      <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="submit-button" />
       </form>
       <br></br>
       <p>Violent Crimes Per 100k: {this.state.ViolentCrimesPerPop}</p> </div>;

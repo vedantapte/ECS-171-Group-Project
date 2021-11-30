@@ -30,22 +30,36 @@ class Model1 extends React.Component {
     this.handleSubmit();
   }
 
+  
+
   render() {
     if (this.show) {
-      return <div className="Model1"> <form onSubmit={this.handleSubmit}>
+      return <div className="Model1"> 
+      <blockquote>Model that uses family-related attributes to predict violent crime.</blockquote>
+      
+      <form onSubmit={this.handleSubmit}>
         <div>
         Percentage of kids in family housing with two parents:
-        <Slider value={this.state.PctKids2Par} onChange={event => this.setState({ PctKids2Par: event.target.value })}/>
+        <div className="slider">
+          <Slider value={this.state.PctKids2Par} onChange={(event, value) => this.setState({ PctKids2Par: value })}/>
+          <p className="slider-text">{this.state.PctKids2Par? this.state.PctKids2Par:"0"}</p>
+        </div>
         </div>
         <div>
         Percentage of kids born to never married:
-        <Slider value={this.state.PctIlleg} onChange={event => this.setState({ PctIlleg: event.target.value })}/>
+        <div className="slider">
+          <Slider value={this.state.PctIlleg} onChange={(event, value) => this.setState({ PctIlleg: value})}/>
+          <p className="slider-text">{this.state.PctIlleg? this.state.PctIlleg:"0"}</p>
+        </div>
         </div>
         <div>
         Percentage of population who are divorced:
-        <Slider value={this.state.TotalPctDiv} onChange={event => this.setState({ TotalPctDiv: event.target.value })}/>
+        <div className="slider">
+          <Slider value={this.state.TotalPctDiv} onChange={(event, value) => this.setState({ TotalPctDiv: value})}/>
+          <p className="slider-text">{this.state.TotalPctDiv? this.state.TotalPctDiv:"0"}</p>
         </div>
-    <input type="submit" value="Submit" />
+        </div>
+    <input type="submit" value="Submit" className="submit-button" />
     </form>
     <p>Violent Crimes Per 100K: {this.state.ViolentCrimesPerPop}</p> </div>;
     } else {

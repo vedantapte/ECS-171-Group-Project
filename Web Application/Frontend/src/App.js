@@ -74,12 +74,6 @@ export class App extends React.Component {
     <div className="App-all">
     <Buttons onToggle={this.handleToggleSection} activeSection={this.state.activeSection} />
     <Main activeSection={this.state.activeSection} />
-    <div>
-      <CCard style={{ width: '18rem'}}>
-        <CCardHeader>About</CCardHeader>
-        <CCardBody>Family: A model that uses family-related attributes to predict violent crime. <br></br> Wealth: A model that uses wealth-related attributes to predict violent crime. <br></br> Race: A model that uses race-related attributes to predict violent crime. <br></br> All: A model that uses all of the above attributes to predict violent crime.</CCardBody>
-      </CCard>
-      </div>
     </div>      
   );
   }

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import { Slider } from "@material-ui/core";
 class Model2 extends React.Component {
     constructor(props) {
         super(props);
@@ -30,32 +31,37 @@ class Model2 extends React.Component {
 
   render() {
     if (this.show) {
-      return <div className="Model2"> <form onSubmit={this.handleSubmit}>
+      return <div className="Model2"> 
+      <blockquote>Model that uses wealth-related attributes to predict violent crime.</blockquote>
+      <form onSubmit={this.handleSubmit}>
     <label>
     <div>
     Percentage of people under the poverty level:
-    <br></br>
-    <input type="number" step="any" name='PctPopUnderPov' required 
-        onChange={event => this.setState({ PctPopUnderPov: event.target.value })}/>
+    <div className="slider">
+          <Slider value={this.state.PctPopUnderPov} onChange={(event, value) => this.setState({ PctPopUnderPov: value })}/>
+          <p className="slider-text">{this.state.PctPopUnderPov? this.state.PctPopUnderPov:"0"}</p>
+    </div>
     </div>
     <div>
     Percentage of households with public assistance income in 1989:
-    <br></br>
-    <input type="number" step="any" name='pctWPubAsst' required 
-    onChange={event => this.setState({ pctWPubAsst: event.target.value })}/>
+    <div className="slider">
+          <Slider value={this.state.pctWPubAsst} onChange={(event, value) => this.setState({ pctWPubAsst: value })}/>
+          <p className="slider-text">{this.state.pctWPubAsst? this.state.pctWPubAsst:"0"}</p>
+    </div>
     </div>
     <div>
     Percentage of households with investment / rent income in 1989:
-    <br></br>
-    <input type="number" step="any" name='pctWInvInc' required 
-    onChange={event => this.setState({ pctWInvInc: event.target.value })}/>
+    <div className="slider">
+          <Slider value={this.state.pctWInvInc} onChange={(event, value) => this.setState({ pctWInvInc: value })}/>
+          <p className="slider-text">{this.state.pctWInvInc? this.state.pctWInvInc:"0"}</p>
+    </div>
     </div>
 
     </label>
     <br></br>
     <br></br>
 
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Submit" className="submit-button" />
     </form>
     <br></br>
     <p>Violent Crimes Per 100k: {this.state.ViolentCrimesPerPop}</p> </div>;
