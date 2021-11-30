@@ -10,9 +10,9 @@ CORS(app)
 
 @app.route('/family', methods=['GET'])
 def calcViolentCrimesModel1():
-    PctKids2Par = float(request.args.get('PctKids2Par')) #Attributes will come from the front end
-    PctIlleg = float(request.args.get('PctIlleg'))
-    TotalPctDiv = float(request.args.get('TotalPctDiv'))
+    PctKids2Par = float(request.args.get('PctKids2Par'))/100 #Attributes will come from the front end
+    PctIlleg = float(request.args.get('PctIlleg'))/100
+    TotalPctDiv = float(request.args.get('TotalPctDiv'))/100
     if (not PctKids2Par or not PctIlleg or not TotalPctDiv): #Bad request if user didn't send in an argument.
         return Response("Missing attribute.", status=400)
     familyOutput = family.getCrimeRate(PctKids2Par, PctIlleg, TotalPctDiv)
@@ -23,9 +23,9 @@ def calcViolentCrimesModel1():
 
 @app.route('/wealth', methods=['GET'])
 def calcViolentCrimesModel2():
-    PctPopUnderPov = float(request.args.get('PctPopUnderPov')) #Attributes will come from the front end
-    pctWPubAsst = float(request.args.get('pctWPubAsst'))
-    pctWInvInc = float(request.args.get('pctWInvInc'))
+    PctPopUnderPov = float(request.args.get('PctPopUnderPov'))/100 #Attributes will come from the front end
+    pctWPubAsst = float(request.args.get('pctWPubAsst'))/100
+    pctWInvInc = float(request.args.get('pctWInvInc'))/100
     if (not PctPopUnderPov or not pctWPubAsst or not pctWInvInc): #Bad request if user didn't send in an argument.
         return Response("Missing attribute.", status=400)
     wealthOutput = wealth.getCrimeRate(PctPopUnderPov, pctWPubAsst, pctWInvInc)
@@ -36,8 +36,8 @@ def calcViolentCrimesModel2():
 
 @app.route('/race', methods=['GET'])
 def calcViolentCrimesModel3():
-    racepctblack = float(request.args.get('racepctblack')) #Attributes will come from the front end
-    racePctWhite = float(request.args.get('racePctWhite'))
+    racepctblack = float(request.args.get('racepctblack'))/100 #Attributes will come from the front end
+    racePctWhite = float(request.args.get('racePctWhite'))/100
     if (not racepctblack or not racePctWhite): #Bad request if user didn't send in an argument.
         return Response("Missing attribute.", status=400)
     raceOutput = race.getCrimeRate(racepctblack, racePctWhite)
@@ -49,14 +49,14 @@ def calcViolentCrimesModel3():
 
 @app.route('/all', methods=['GET'])
 def calcViolentCrimesModel4():
-    PctKids2Par = float(request.args.get('PctKids2Par')) #Attributes will come from the front end
-    PctIlleg = float(request.args.get('PctIlleg'))
-    TotalPctDiv = float(request.args.get('TotalPctDiv'))
-    PctPopUnderPov = float(request.args.get('PctPopUnderPov')) #Attributes will come from the front end
-    pctWPubAsst = float(request.args.get('pctWPubAsst'))
-    pctWInvInc = float(request.args.get('pctWInvInc'))
-    racepctblack = float(request.args.get('racepctblack')) #Attributes will come from the front end
-    racePctWhite = float(request.args.get('racePctWhite'))
+    PctKids2Par = float(request.args.get('PctKids2Par'))/100 #Attributes will come from the front end
+    PctIlleg = float(request.args.get('PctIlleg'))/100
+    TotalPctDiv = float(request.args.get('TotalPctDiv'))/100
+    PctPopUnderPov = float(request.args.get('PctPopUnderPov'))/100 #Attributes will come from the front end
+    pctWPubAsst = float(request.args.get('pctWPubAsst'))/100
+    pctWInvInc = float(request.args.get('pctWInvInc'))/100
+    racepctblack = float(request.args.get('racepctblack'))/100 #Attributes will come from the front end
+    racePctWhite = float(request.args.get('racePctWhite'))/100
     if (not PctKids2Par or not PctIlleg or not TotalPctDiv or not PctPopUnderPov or not pctWPubAsst or not pctWInvInc or not racepctblack or not racePctWhite): #Bad request if user didn't send in an argument.
         return Response("Missing attribute.", status=400)
     allCategoriesOutput = allCategories.getCrimeRate(PctKids2Par,PctIlleg,TotalPctDiv,racepctblack,racePctWhite,PctPopUnderPov,pctWPubAsst,pctWInvInc)

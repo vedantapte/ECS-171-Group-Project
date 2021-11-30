@@ -5,7 +5,14 @@ import { Slider } from "@material-ui/core";
 class Model1 extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = { PctKids2Par: 0,
+          PctIlleg: 0,
+          TotalPctDiv: 0,
+          PctPopUnderPov: 0,
+          pctWPubAsst: 0,
+          pctWInvInc: 0,
+          racepctblack: 0,
+          racePctWhite: 0};
     }
   get show() {
     return this.props.activeSection === "Model1";
