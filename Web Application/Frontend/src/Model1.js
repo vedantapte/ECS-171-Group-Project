@@ -68,7 +68,7 @@ class Model1 extends React.Component {
         </div>
     <input type="submit" value="Submit" className="submit-button" />
     </form>
-    <p>Violent Crimes Per 100K: {this.state.ViolentCrimesPerPop}</p> </div>;
+    <p>{this.state.ViolentCrimesPerPop? "Violent Crimes Per 100K: " + this.state.ViolentCrimesPerPop : ""}</p> </div>;
     } else {
       return null;
     }

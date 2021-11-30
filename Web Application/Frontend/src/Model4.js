@@ -110,7 +110,7 @@ class Model4 extends React.Component {
       </form>
       <br></br>
 
-      <p>Violent Crimes Per 100k: {this.state.ViolentCrimesPerPop}</p></div>;
+      <p>{this.state.ViolentCrimesPerPop? "Violent Crimes Per 100K: " + this.state.ViolentCrimesPerPop : ""}</p> </div>;
       } else {
         return null;
       }
