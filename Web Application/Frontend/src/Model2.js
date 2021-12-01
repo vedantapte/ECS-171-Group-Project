@@ -43,21 +43,21 @@ class Model2 extends React.Component {
       <form onSubmit={this.handleSubmit}>
     <label>
     <div>
-    Percentage of people under the poverty level:
+    Rate of people under the poverty level (Normalized):
     <div className="slider">
           <Slider value={this.state.PctPopUnderPov} onChange={(event, value) => this.setState({ PctPopUnderPov: value })}/>
           <p className="slider-text">{this.state.PctPopUnderPov? this.state.PctPopUnderPov:"0"}</p>
     </div>
     </div>
     <div>
-    Percentage of households with public assistance income in 1989:
+    Rate of households with public assistance income in 1989 (Normalized):
     <div className="slider">
           <Slider value={this.state.pctWPubAsst} onChange={(event, value) => this.setState({ pctWPubAsst: value })}/>
           <p className="slider-text">{this.state.pctWPubAsst? this.state.pctWPubAsst:"0"}</p>
     </div>
     </div>
     <div>
-    Percentage of households with investment / rent income in 1989:
+    Rate of households with investment / rent income in 1989 (Normalized):
     <div className="slider">
           <Slider value={this.state.pctWInvInc} onChange={(event, value) => this.setState({ pctWInvInc: value })}/>
           <p className="slider-text">{this.state.pctWInvInc? this.state.pctWInvInc:"0"}</p>

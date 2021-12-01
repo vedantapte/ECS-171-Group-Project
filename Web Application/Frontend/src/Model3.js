@@ -44,14 +44,14 @@ class Model3 extends React.Component {
         <form onSubmit={this.handleSubmit}>
         <label>
           <div>
-          Percentage of population that is African American:
+          Rate of population that is African American (Normalized):
           <div className="slider">
             <Slider value={this.state.racepctblack} onChange={(event, value) => this.setState({ racepctblack: value })}/>
             <p className="slider-text">{this.state.racepctblack? this.state.racepctblack:"0"}</p>
           </div>
           </div>
           <div>
-          Percentage of population that is Caucasian:
+          Rate of population that is Caucasian (Normalized):
           <div className="slider">
             <Slider value={this.state.racePctWhite} onChange={(event, value) => this.setState({ racePctWhite: value })}/>
             <p className="slider-text">{this.state.racePctWhite? this.state.racePctWhite:"0"}</p>

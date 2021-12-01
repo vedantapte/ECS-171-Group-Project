@@ -3,7 +3,6 @@ import Model1 from "./Model1";
 import Model2 from "./Model2";
 import Model3 from "./Model3";
 import Model4 from "./Model4";
-import { CCard, CCardHeader, CCardBody} from '@coreui/react';
 import '@coreui/coreui/dist/css/coreui.min.css'
 //source for form: https://vegibit.com/a-simple-react-js-form-example/
 //button logic: https://stackoverflow.com/questions/52006335/how-to-change-display-onclick-in-react

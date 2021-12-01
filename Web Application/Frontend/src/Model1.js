@@ -46,21 +46,21 @@ class Model1 extends React.Component {
       
       <form onSubmit={this.handleSubmit}>
         <div>
-        Percentage of kids in family housing with two parents:
+        Rate of kids in family housing with two parents (Normalized):
         <div className="slider">
           <Slider value={this.state.PctKids2Par} onChange={(event, value) => this.setState({ PctKids2Par: value })}/>
           <p className="slider-text">{this.state.PctKids2Par? this.state.PctKids2Par:"0"}</p>
         </div>
         </div>
         <div>
-        Percentage of kids born to never married:
+        Rate of kids born to never married (Normalized):
         <div className="slider">
           <Slider value={this.state.PctIlleg} onChange={(event, value) => this.setState({ PctIlleg: value})}/>
           <p className="slider-text">{this.state.PctIlleg? this.state.PctIlleg:"0"}</p>
         </div>
         </div>
         <div>
-        Percentage of population who are divorced:
+        Rate of population who are divorced (Normalized):
         <div className="slider">
           <Slider value={this.state.TotalPctDiv} onChange={(event, value) => this.setState({ TotalPctDiv: value})}/>
           <p className="slider-text">{this.state.TotalPctDiv? this.state.TotalPctDiv:"0"}</p>
